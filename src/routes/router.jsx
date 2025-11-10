@@ -6,6 +6,7 @@ import Register from "../pages/Register";
 import AddReview from "../pages/AddReview";
 import AllReviews from "../pages/AllReviews";
 import DetailsPage from "../pages/DetailsPage";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -35,7 +36,7 @@ export const router = createBrowserRouter([
         {
           path:'/reviews/:id',
           loader:({params})=>fetch(`http://localhost:3000/reviews/${params.id}`),
-          Component:DetailsPage
+          element:<PrivateRoute><DetailsPage></DetailsPage></PrivateRoute>
         }
 
     ]

@@ -5,7 +5,7 @@ const FeaturedReviews = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/reviews")
+    fetch("http://localhost:3000/featuredreviews")
       .then(res => res.json())
       .then(data => setReviews(data))
       .catch(err => console.error(err));
