@@ -126,12 +126,11 @@ const AddReview = () => {
               ></textarea>
             </div>
 
-            {/* Email and Date (auto-filled) */}
             <div>
               <label className="label font-medium">Your Email</label>
               <input
                 type="email"
-                value={user?.email || ""}
+                value={user?.email || "anonymous"}
                 className="input input-bordered w-full bg-gray-100"
                 readOnly
               />
