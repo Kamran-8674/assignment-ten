@@ -4,6 +4,8 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import AddReview from "../pages/AddReview";
+import AllReviews from "../pages/AllReviews";
+import DetailsPage from "../pages/DetailsPage";
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +27,15 @@ export const router = createBrowserRouter([
         {
           path:'/addReview',
           element:<AddReview></AddReview>
+        },
+        {
+          path:'/allReviews',
+          Component:AllReviews
+        },
+        {
+          path:'/reviews/:id',
+          loader:({params})=>fetch(`http://localhost:3000/reviews/${params.id}`),
+          Component:DetailsPage
         }
 
     ]
