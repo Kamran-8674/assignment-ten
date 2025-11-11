@@ -1,27 +1,38 @@
 import { useEffect, useState } from "react";
+import { FaStar } from "react-icons/fa";
 import { Link } from "react-router";
+
 
 const FeaturedReviews = () => {
   const [reviews, setReviews] = useState([]);
+  const [loading,setloding]=useState(true)
+
 
   useEffect(() => {
     fetch("http://localhost:3000/featuredreviews")
       .then(res => res.json())
       .then(data => setReviews(data))
-      .catch(err => console.error(err));
+      .catch(err => console.error(err))
+      .finally(setloding(false))
+      
   }, []);
 
-  return (
-    <div className="max-w-6xl mx-auto px-4 py-10">
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold">⭐ Featured Reviews</h2>
-        <Link to="/allReviews" className="text-blue-600 hover:underline">
-          Show All →
-        </Link>
-      </div>
+  if(loading) return <span className="loading flex justify-center mx-auto items-center loading-spinner loading-xl"></span>
 
-      <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-6">
+
+  return (
+    <div className=" mx-auto px-4 py-10 bg-orange-300">
+      <div className="  flex justify-center mb-6">
+        <FaStar className="mt text-4xl text-orange-400" />
+
+        <h2 className="text-2xl font-bold">Featured Reviews</h2>
+       
+      </div>
+       
+      <div className="grid md:grid-cols-3 max-w-6xl mx-auto sm:grid-cols-2 gap-6">
+        
         {reviews.map((review) => (
+          
           <div
             key={review._id}
             className="bg-white h-100 rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition"
@@ -43,7 +54,7 @@ const FeaturedReviews = () => {
 
               <Link
                 to={`/reviews/${review._id}`}
-                className="block mt-2 text-center bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
+                className="block mt-2  text-center bg-orange-400 text-white py-2 rounded-lg hover:bg-orange-500 transition"
               >
                 View Details
               </Link>

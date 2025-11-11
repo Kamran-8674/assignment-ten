@@ -30,7 +30,8 @@ const Navbar = () => {
           {links}
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl">FOOD</a>
+  <h1 className='text-2xl font-bold text-orange-300'>FlavorTrail</h1>
+
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
@@ -51,8 +52,8 @@ const Navbar = () => {
     <li><button onClick={handleLogOut} className='btn'>SignOut</button></li>
   </ul>
      </div> : <>
-      <NavLink className={'btn bg-amber-300 rounded-full'} to={'/register'}>Register</NavLink>
-     <NavLink className={'btn bg-amber-300 rounded-full'} to={'/login'}>Login</NavLink>
+      <NavLink className={'btn bg-orange-400 text-white hover:bg-orange-500 rounded-full'} to={'/register'}>Register</NavLink>
+     <NavLink className={'btn bg-orange-400 hover:bg-orange-500 text-white rounded-full'} to={'/login'}>Login</NavLink>
      </>
      }
     
