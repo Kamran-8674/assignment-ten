@@ -46,6 +46,7 @@ const Navbar = () => {
   </div>
   <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 mr-14 mt-4 p-2 shadow-sm">
     <li><NavLink className={' '} to={'/addReview'}>AddReview</NavLink></li>
+    <li><NavLink className={' '} to={'/myReviews'}>MyReviews</NavLink></li>
     <li><a>Item 2</a></li>
     <li><button onClick={handleLogOut} className='btn'>SignOut</button></li>
   </ul>
