@@ -13,7 +13,7 @@ const HeroSection = () => {
         pagination={{ clickable: true }}
         autoplay={{ delay: 4000 }}
         loop={true}
-        className="h-[350px] w-full rounded-xl"
+        className="h-[500px] w-full rounded-xl"
             
             >
                 <SwiperSlide>

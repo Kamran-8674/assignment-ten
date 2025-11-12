@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
+import { GrFormNextLink } from "react-icons/gr";
 import { Link } from "react-router";
 
 
@@ -62,6 +63,15 @@ const FeaturedReviews = () => {
           </div>
         ))}
       </div>
+       <Link
+                to={`/allReviews`}
+                className=" mt-4 md:w-30 text-center bg-orange-400 text-white py-2 rounded-lg hover:bg-orange-500 mx-auto flex justify-center transition"
+              >
+                View All<GrFormNextLink className="mt-1" />
+              </Link>
+
+    
+
     </div>
   );
 };
