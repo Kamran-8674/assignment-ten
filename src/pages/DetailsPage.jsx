@@ -30,7 +30,7 @@ const DetailsPage = () => {
             <h4></h4>
             <p className='font-semibold text-xl'> RestaurentName: <span className='text-orange-700'>{restaurantName}</span></p>
             <p><span className='font-semibold text-xl'>Adress</span>: <span>{location}</span></p>
-            <p className='font-semibold text-xl flex'>Rating:        <span>{rating}</span> <FaStar className="mt  text-orange-400" />
+            <p className='font-semibold text-xl flex'>Rating:        ⭐ {rating}/5
             </p>
 
            <Link

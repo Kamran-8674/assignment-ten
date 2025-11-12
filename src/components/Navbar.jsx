@@ -18,7 +18,7 @@ const Navbar = () => {
           
   
     return (
-        <div className="navbar bg-base-100 shadow-sm">
+        <div className="navbar bg-base-100 shadow-sm fixed top-0 left-0 w-full z-50">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -42,14 +42,14 @@ const Navbar = () => {
 
   <div className="navbar-end mr-4">
     {user? <div className="dropdown dropdown-bottom  dropdown-center">
-  <div tabIndex={0} role="button" className="">
+  <div tabIndex={0} role="button" className="|">
     <img  className='rounded-full w-15' src={user.photoURL} alt="User" />
   </div>
   <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 mr-14 mt-4 p-2 shadow-sm">
     <li><NavLink className={' '} to={'/addReview'}>AddReview</NavLink></li>
     <li><NavLink className={' '} to={'/myReviews'}>MyReviews</NavLink></li>
     <li><a>Item 2</a></li>
-    <li><button onClick={handleLogOut} className='btn'>SignOut</button></li>
+    <li><button onClick={handleLogOut} className='btn bg-orange-400 text-white hover:bg-orange-500 rounded-full'>SignOut</button></li>
   </ul>
      </div> : <>
       <NavLink className={'btn bg-orange-400 text-white hover:bg-orange-500 rounded-full'} to={'/register'}>Register</NavLink>

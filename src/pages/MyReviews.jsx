@@ -1,5 +1,7 @@
 import React, { use, useEffect, useState } from 'react';
 import { AuthContext } from '../context/AUthContext';
+import { FaEdit, FaTrash } from 'react-icons/fa';
+import { CiEdit } from 'react-icons/ci';
 
 const MyReviews = () => {
     const {user}=use(AuthContext)
@@ -18,72 +20,59 @@ const MyReviews = () => {
 
     },[user?.email])
     return (
-        <div>
-            my 
-            {myReviews.map(review=><div key={review._id} className="overflow-x-auto">
-  <table className="table">
-    {/* head */}
-    <thead>
-      <tr>
-        <th>
-          <label>
-            <input type="checkbox" className="checkbox" />
-          </label>
-        </th>
-        <th>Name</th>
-        <th>Job</th>
-        <th>Favorite Color</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      {/* row 1 */}
-      <tr>
-        <th>
-          <label>
-            <input type="checkbox" className="checkbox" />
-          </label>
-        </th>
-        <td>
-          <div className="flex items-center gap-3">
-            <div className="avatar">
-              <div className="mask mask-squircle h-12 w-12">
-                <img
-                  src="https://img.daisyui.com/images/profile/demo/2@94.webp"
-                  alt="Avatar Tailwind CSS Component" />
-              </div>
-            </div>
-            <div>
-              <div className="font-bold">Hart Hagerty</div>
-              <div className="text-sm opacity-50">United States</div>
-            </div>
-          </div>
-        </td>
-        <td>
-          Zemlak, Daniel and Leannon
-          <br />
-          <span className="badge badge-ghost badge-sm">Desktop Support Technician</span>
-        </td>
-        <td>Purple</td>
-        <th>
-          <button className="btn btn-ghost btn-xs">details</button>
-        </th>
-      </tr>
-    
-    </tbody>
-    {/* foot */}
-    <tfoot>
-      <tr>
-        <th></th>
-        <th>Name</th>
-        <th>Job</th>
-        <th>Favorite Color</th>
-        <th></th>
-      </tr>
-    </tfoot>
-  </table>
-</div>)}
-        </div>
+       <div className="py-20 container mx-auto bg-orange-300">
+      <h2 className="text-2xl font-bold text-center mt-6 mb-6">My Reviews</h2>
+
+      <div className="">
+        <table className="table w-full border border-orange-300 rounded-lg shadow-sm">
+          <thead className="bg-orange-400 text-white">
+            <tr>
+              <th>Image</th>
+              <th>Food Name</th>
+              <th>Restaurant</th>
+              <th>Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {myReviews.map((review) => (
+              <tr key={review._id} className="hover:bg-orange-200">
+                <td>
+                  <img
+                    src={review.foodImage}
+                    alt={review.foodName}
+                    className="w-14 h-14 rounded-lg object-cover"
+                  />
+                </td>
+                <td className="font-medium">{review.foodName}</td>
+                <td>{review.restaurantName}</td>
+                <td>{new Date(review.date).toLocaleDateString()}</td>
+                <td className="flex items-center gap-3">
+                  <button
+                    // onClick={() => handleDelete(review._id)}
+                    className="btn btn-xs bg-red-500 text-white hover:bg-red-600"
+                  >
+                    <FaTrash />
+                  </button>
+                  <button
+                    // onClick={() => window.location.href = `/edit/${review._id}`}
+                    className="btn btn-xs bg-red-500 text-white hover:bg-red-600"
+                  >
+                    <CiEdit />
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        {myReviews.length === 0 && (
+          <p className="text-center text-gray-500 mt-6">
+            You haven’t added any reviews yet.
+          </p>
+        )}
+      </div>
+    </div>
     );
 };
 

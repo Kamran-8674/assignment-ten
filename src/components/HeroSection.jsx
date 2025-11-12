@@ -7,7 +7,7 @@ import "swiper/css/pagination";
 
 const HeroSection = () => {
     return (
-        <div>
+        <div  className=" relative z-0">
             <Swiper modules={[Navigation, Pagination, Autoplay]}
         navigation
         pagination={{ clickable: true }}
