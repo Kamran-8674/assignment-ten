@@ -1,6 +1,7 @@
 import { use } from "react";
 import { useNavigate } from "react-router";
 import { AuthContext } from "../context/AUthContext";
+import Swal from "sweetalert2";
 
 const AddReview = () => {
   const { user } = use(AuthContext)
@@ -37,13 +38,21 @@ const AddReview = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log("Review added:", data);
-        alert("✅ Review added successfully!");
+        if(data.insertedId){
+          Swal.fire({
+  position: "top-end",
+  icon: "success",
+  title: "Your work has been saved",
+  showConfirmButton: false,
+  timer: 1500
+});
+        }
         e.target.reset();
         navigate("/");
       })
       .catch((err) => {
         console.error("Error adding review:", err);
-        alert("❌ Failed to add review");
+       
       });
   };
 
