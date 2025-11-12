@@ -48,7 +48,7 @@ const AddReview = () => {
   };
 
   return (
-    <div className="flex justify-center items-center mt-20">
+    <div className="flex justify-center bg-orange-300 items-center py-20">
       <div className="card bg-base-100 w-full max-w-md shadow-2xl p-5">
         <h2 className="text-2xl font-semibold text-center mb-4 text-gray-700">
           Add Review

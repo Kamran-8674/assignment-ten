@@ -1,41 +1,50 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link, useLoaderData } from 'react-router';
+import { AuthContext } from '../context/AUthContext';
+import { FaStar } from 'react-icons/fa';
+
 
 const DetailsPage = () => {
     const review = useLoaderData()
+    const {user}=use(AuthContext)
     console.log(review)
-    const {foodImage,foodName,rating,restaurantName,_id}=review
+    const {foodImage,foodName,reviewText,rating,restaurantName,_id,location}=review
     return (
-        <div className="bg-white rounded-2xl shadow-md hover:shadow-lg transition duration-300 overflow-hidden">
-      {/* Image */}
-      <div className="relative">
+        <div className="bg-orange-300 space-x-5  md:flex h-screen justify-center items-center">
+
+         
+
+     
+      <div className="">
         <img
           src={foodImage}
           alt={foodName}
-          className="w-full h-48 object-cover"
+          className="w-full rounded-2xl md:h-100 md:rotate-6 md:bg-white p-4"
         />
-        <div className="absolute top-2 right-2 bg-yellow-400 text-black px-2 py-1 text-sm font-medium rounded-lg flex items-center gap-1">
-           {rating}
-        </div>
+       
       </div>
+        <div className="space-y-3.5">
+          <h1 className='text-2xl font-bold'>{foodName}</h1>
+           <div><p>"{reviewText}"</p>
+            <h1 className='flex justify-end '>{user?.displayName}</h1></div>
+            <h4></h4>
+            <p className='font-semibold text-xl'> RestaurentName: <span className='text-orange-700'>{restaurantName}</span></p>
+            <p><span className='font-semibold text-xl'>Adress</span>: <span>{location}</span></p>
+            <p className='font-semibold text-xl flex'>Rating:        <span>{rating}</span> <FaStar className="mt  text-orange-400" />
+            </p>
+
+           <Link
+                to={`/addReview`}
+                className="block mt-2  text-center bg-orange-400 text-white py-2 rounded-lg hover:bg-orange-500 transition"
+              >
+                Add Your Review
+              </Link>
+        </div>
+
+      
 
       {/* Content */}
-      <div className="p-4 space-y-2">
-        <h3 className="text-lg font-semibold text-gray-800">{foodName}</h3>
-        <p className="text-gray-600 text-sm">
-          {restaurantName}
-        </p>
-        <p className="text-sm text-gray-500">
-          Reviewed by <span className="font-medium text-gray-700">{ "Anonymous"}</span>
-        </p>
-
-        <Link
-          to={`/reviews/${_id}`}
-          className="block mt-3 bg-blue-600 text-white text-center py-2 rounded-lg font-medium hover:bg-blue-700 transition"
-        >
-          View Details
-        </Link>
-      </div>
+      
     </div>
     );
 };
