@@ -40,7 +40,7 @@ const Register = () => {
      }
 
     return (
-        <div>
+        <div className='bg-orange-300 p-5'>
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl mt-24 mx-auto ">
       <div className="card-body">
 
