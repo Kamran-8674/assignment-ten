@@ -1,6 +1,7 @@
 import React, { use } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../context/AUthContext';
+import { toast } from 'react-toastify';
 
 const Register = () => {
     const {signUpWithEmailAndPass,signInWithGoogle,
@@ -20,7 +21,8 @@ const Register = () => {
                 console.log(res)
             })
             .catch(err=>{
-                console.log(err)
+                // console.log(err)
+                toast.error(err.message)
             })
 
 
@@ -35,7 +37,8 @@ const Register = () => {
             navigate('/')
         })
         .catch(err=>{
-            console.log(err)
+            // console.log(err)
+            toast.error(err.message)
         })
      }
 

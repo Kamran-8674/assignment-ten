@@ -30,6 +30,7 @@ const Footer = () => {
           <a href="#" className="hover:text-orange-500"><FaSquareXTwitter /></a>
       </div>
   </nav>
+   
 </footer>
     );
 };
