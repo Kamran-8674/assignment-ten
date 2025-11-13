@@ -3,6 +3,7 @@ import { AuthContext } from '../context/AUthContext';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import { CiEdit } from 'react-icons/ci';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router';
 
 const MyReviews = () => {
     const {user}=use(AuthContext)
@@ -92,12 +93,12 @@ const MyReviews = () => {
                   >
                     <FaTrash />
                   </button>
-                  <button
-                    // onClick={() => window.location.href = `/edit/${review._id}`}
+                 <Link to={`/update/${review._id}`}> <button
+                    
                     className="btn btn-xs bg-orange-500 text-white hover:bg-orange-600"
                   >
                     <CiEdit />
-                  </button>
+                  </button></Link>
                 </td>
               </tr>
             ))}
