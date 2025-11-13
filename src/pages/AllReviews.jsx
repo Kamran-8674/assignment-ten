@@ -11,7 +11,7 @@ const AllReviews = () => {
           .catch(err => console.error(err));
       }, []);
     return (
-          <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-6">
+          <div className="grid bg-orange-300 md:py-18 md:grid-cols-3 sm:grid-cols-2 gap-6">
         {reviews.map((review) => (
           <div
             key={review._id}
