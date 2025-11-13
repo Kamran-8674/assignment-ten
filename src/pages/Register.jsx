@@ -23,6 +23,7 @@ const Register = () => {
             .catch(err=>{
                 // console.log(err)
                 toast.error(err.message)
+
             })
 
 
@@ -37,8 +38,8 @@ const Register = () => {
             navigate('/')
         })
         .catch(err=>{
-            // console.log(err)
-            toast.error(err.message)
+            console.log(err)
+            // toast.error(err.message)
         })
      }
 
@@ -64,7 +65,9 @@ const Register = () => {
           <label className="label">Password</label>
           <input type="password" name='password' className="input" placeholder="Password" />
           
-          <button className="btn btn-neutral mt-4">Register</button>
+            <button type="submit" className="btn bg-orange-400 hover:bg-orange-500 w-full mt-3">
+              Register
+            </button>
               <p>Already have an account? please <Link className='text-blue-400 underline' to={'/login'}>Login</Link></p>
         </fieldset>
        </form>

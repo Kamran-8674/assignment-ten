@@ -59,6 +59,11 @@ const Update = () => {
        }
     return (
         <div>
+             <div className="flex justify-center bg-orange-300 items-center md:pt-40 pb-10">
+      <div className="card bg-base-100 w-full max-w-md shadow-2xl p-5">
+        <h2 className="text-2xl font-semibold text-center mb-4 text-gray-700">
+          Update Your Review
+        </h2>
              <form onSubmit={handleUpdate}>
           <fieldset className="fieldset space-y-3">
             <div>
@@ -151,12 +156,14 @@ const Update = () => {
               />
             </div>
 
-            <button type="submit" className="btn btn-neutral w-full mt-3">
+            <button type="submit" className="btn bg-orange-400 hover:bg-orange-500 w-full mt-3">
               Update
             </button>
           </fieldset>
         </form>
         </div>
+   </div>
+  </div>
     );
 };
 

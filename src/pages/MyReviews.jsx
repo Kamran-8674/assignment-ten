@@ -15,7 +15,11 @@ const MyReviews = () => {
 
     useEffect(()=>{
    if(user?.email){
-         fetch(`http://localhost:3000/my-reviews?email=${user.email}`)
+         fetch(`http://localhost:3000/my-reviews?email=${user.email}`,{
+          headers:{
+            authorazation:`Bearer ${user.accessToken}`
+          }
+         })
      .then(res=>res.json())
      .then(data=> {
         console.log(data)
@@ -23,7 +27,7 @@ const MyReviews = () => {
      })
    }
 
-    },[user?.email])
+    },[user])
 
       const handleDelete = (_id) =>{
       Swal.fire({

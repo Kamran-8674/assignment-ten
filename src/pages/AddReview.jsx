@@ -32,7 +32,10 @@ const AddReview = () => {
 
     fetch("http://localhost:3000/reviews", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json",
+        authorazation:`Bearer ${user.accessToken}`
+
+       },
       body: JSON.stringify(reviewData),
     })
       .then((res) => res.json())
@@ -42,7 +45,7 @@ const AddReview = () => {
           Swal.fire({
   position: "top-end",
   icon: "success",
-  title: "Your work has been saved",
+  title: "New Review Added",
   showConfirmButton: false,
   timer: 1500
 });
@@ -155,8 +158,8 @@ const AddReview = () => {
               />
             </div>
 
-            <button type="submit" className="btn btn-neutral w-full mt-3">
-              Add Review
+             <button type="submit" className="btn bg-orange-400 hover:bg-orange-500 w-full mt-3">
+              Update
             </button>
           </fieldset>
         </form>

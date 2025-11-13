@@ -6,6 +6,9 @@ import { FaStar } from 'react-icons/fa';
 
 const DetailsPage = () => {
     const review = useLoaderData()
+   
+
+
     const {user}=use(AuthContext)
     console.log(review)
     const {foodImage,foodName,reviewText,rating,restaurantName,_id,location}=review

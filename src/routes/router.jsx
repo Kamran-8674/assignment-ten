@@ -29,7 +29,7 @@ export const router = createBrowserRouter([
         },
         {
           path:'/addReview',
-          element:<AddReview></AddReview>
+          element:<PrivateRoute><AddReview></AddReview></PrivateRoute>
         },
         {
           path:'/allReviews',

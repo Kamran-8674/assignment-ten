@@ -52,7 +52,9 @@ const Login = () => {
           <label className="label">Password</label>
           <input type="password" name='password' className="input" placeholder="Password" />
           
-          <button className="btn btn-neutral mt-4">Login</button>
+            <button type="submit" className="btn bg-orange-400 hover:bg-orange-500 w-full mt-3">
+              Login
+            </button>
               <p>Dont have an account? please <Link className='text-blue-400 underline' to={'/register'}>Register</Link></p>
         </fieldset>
        </form>
