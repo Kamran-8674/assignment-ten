@@ -24,11 +24,3 @@ Packages used in this website:
 
 
 
-Important Links:
- client-side code GitHub repository:https://github.com/Kamran-8674/assignment-ten.git
-
- server-side code GitHub repository:https://github.com/Kamran-8674/assignment-ten-server.git
-
- live website link:https://assignment-ten-server-gamma.vercel.app/
-
- https://sparkling-meerkat-29025a.netlify.app/
