@@ -1,16 +1,34 @@
-# React + Vite
+Website Name: FlavorTrail
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Features:
+1-In this website user can give reviews of the foods they have tasted. Also user can see their own reviews and their favorite reviews.
+2- learn about great foods that user has never heard of.
+3 - learn about some amazing local chefs
+4- authentication is also implemented 
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+Packages used in this website:
+       "@tailwindcss/vite": "^4.1.17",
+        "daisyui": "^5.4.7",
+        "firebase": "^12.5.0",
+        "react": "^19.1.1",
+        "react-dom": "^19.1.1",
+        "react-icons": "^5.5.0",
+        "react-router": "^7.9.5",
+        "react-toastify": "^11.0.5",
+        "sweetalert2": "^11.26.3",
+        "swiper": "^12.0.3",
+        "tailwindcss": "^4.1.17"
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+Important Links:
+ client-side code GitHub repository:https://github.com/Kamran-8674/assignment-ten.git
+
+ server-side code GitHub repository:https://github.com/Kamran-8674/assignment-ten-server.git
+
+ live website link:https://assignment-ten-server-gamma.vercel.app/
+
+ https://sparkling-meerkat-29025a.netlify.app/

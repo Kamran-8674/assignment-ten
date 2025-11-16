@@ -14,6 +14,13 @@ const Register = () => {
         const email = e.target.email.value
         const password = e.target.password.value
         console.log(displayName, email,photoURL, password)
+        
+       const isPasswordValid = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+
+    if (!isPasswordValid.test(password)) {
+        toast.error("Password must have uppercase, lowercase & be at least 6 characters")
+        return;}
+        
         signUpWithEmailAndPass(email,password)
         .then(res=>{
             profileUpdate(displayName,photoURL)

@@ -4,7 +4,7 @@ import { AuthContext } from "../context/AUthContext";
 import Swal from "sweetalert2";
 
 const AddReview = () => {
-  const { user } = use(AuthContext)
+  const { user } = use(AuthContext);
   const navigate = useNavigate();
 
   const handleAddReview = (e) => {
@@ -30,32 +30,31 @@ const AddReview = () => {
       date,
     };
 
-    fetch("http://localhost:3000/reviews", {
+    fetch("https://assignment-ten-server-gamma.vercel.app/reviews", {
       method: "POST",
-      headers: { "Content-Type": "application/json",
-        authorazation:`Bearer ${user.accessToken}`
-
-       },
+      headers: {
+        "Content-Type": "application/json",
+        authorazation: `Bearer ${user.accessToken}`,
+      },
       body: JSON.stringify(reviewData),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log("Review added:", data);
-        if(data.insertedId){
+        if (data.insertedId) {
           Swal.fire({
-  position: "top-end",
-  icon: "success",
-  title: "New Review Added",
-  showConfirmButton: false,
-  timer: 1500
-});
+            position: "top-end",
+            icon: "success",
+            title: "New Review Added",
+            showConfirmButton: false,
+            timer: 1500,
+          });
         }
         e.target.reset();
         navigate("/");
       })
       .catch((err) => {
         console.error("Error adding review:", err);
-       
       });
   };
 
@@ -158,7 +157,10 @@ const AddReview = () => {
               />
             </div>
 
-             <button type="submit" className="btn bg-orange-400 hover:bg-orange-500 w-full mt-3">
+            <button
+              type="submit"
+              className="btn bg-orange-400 hover:bg-orange-500 w-full mt-3"
+            >
               Update
             </button>
           </fieldset>

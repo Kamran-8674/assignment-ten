@@ -1,72 +1,67 @@
-import React, { use, useEffect, useState } from 'react';
-import { AuthContext } from '../context/AUthContext';
-import { FaEdit, FaTrash } from 'react-icons/fa';
-import { CiEdit } from 'react-icons/ci';
-import Swal from 'sweetalert2';
-import { Link } from 'react-router';
+import React, { use, useEffect, useState } from "react";
+import { AuthContext } from "../context/AUthContext";
+import { FaEdit, FaTrash } from "react-icons/fa";
+import { CiEdit } from "react-icons/ci";
+import Swal from "sweetalert2";
+import { Link } from "react-router";
 
 const MyReviews = () => {
-    const {user}=use(AuthContext)
-    console.log(user)
-    const [myReviews, setMyReviews]=useState([])
+  const { user } = use(AuthContext);
+  console.log(user);
+  const [myReviews, setMyReviews] = useState([]);
 
-
-  
-
-    useEffect(()=>{
-   if(user?.email){
-         fetch(`http://localhost:3000/my-reviews?email=${user.email}`,{
-          headers:{
-            authorazation:`Bearer ${user.accessToken}`
-          }
-         })
-     .then(res=>res.json())
-     .then(data=> {
-        console.log(data)
-        setMyReviews(data)
-     })
-   }
-
-    },[user])
-
-      const handleDelete = (_id) =>{
-      Swal.fire({
-  title: "Are you sure?",
-  text: "You won't be able to revert this!",
-  icon: "warning",
-  showCancelButton: true,
-  confirmButtonColor: "#3085d6",
-  cancelButtonColor: "#d33",
-  confirmButtonText: "Yes, delete it!"
-}).then((result) => {
-  if (result.isConfirmed) {
-     fetch(`http://localhost:3000/reviews/${_id}`,{
-        method:'DELETE',
-       })
-       .then(res=>res.json())
-       .then(data=>{
-        if(data.deletedCount){
-          Swal.fire({
-      title: "Deleted!",
-      text: "Your file has been deleted.",
-      icon: "success"
-    });
-
+  useEffect(() => {
+    if (user?.email) {
+      fetch(
+        `https://assignment-ten-server-gamma.vercel.app/my-reviews?email=${user.email}`,
+        {
+          headers: {
+            authorazation: `Bearer ${user.accessToken}`,
+          },
         }
-       })
-   const remainingReviews = myReviews.filter(rev => rev._id !== _id);
-  setMyReviews(remainingReviews)
-    
-  }
-});
-     
-
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          setMyReviews(data);
+        });
     }
-    return (
-       <div className="py-20 container mx-auto bg-orange-300">
+  }, [user]);
+
+  const handleDelete = (_id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`https://assignment-ten-server-gamma.vercel.app/reviews/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
+            }
+          });
+        const remainingReviews = myReviews.filter((rev) => rev._id !== _id);
+        setMyReviews(remainingReviews);
+      }
+    });
+  };
+  return (
+    <div className="py-20 container mx-auto bg-orange-300">
       <h2 className="text-2xl font-bold text-center mt-6 mb-6">My Reviews</h2>
 
-      <div className="">
+      <div className="overflow-x-auto">
         <table className="table w-full border border-orange-300 rounded-lg shadow-sm">
           <thead className="bg-orange-400 text-white">
             <tr>
@@ -97,12 +92,12 @@ const MyReviews = () => {
                   >
                     <FaTrash />
                   </button>
-                 <Link to={`/update/${review._id}`}> <button
-                    
-                    className="btn btn-xs bg-orange-500 text-white hover:bg-orange-600"
-                  >
-                    <CiEdit />
-                  </button></Link>
+                  <Link to={`/update/${review._id}`}>
+                    {" "}
+                    <button className="btn btn-xs bg-orange-500 text-white hover:bg-orange-600">
+                      <CiEdit />
+                    </button>
+                  </Link>
                 </td>
               </tr>
             ))}
@@ -116,7 +111,7 @@ const MyReviews = () => {
         )}
       </div>
     </div>
-    );
+  );
 };
 
 export default MyReviews;

@@ -48,7 +48,8 @@ const Navbar = () => {
   <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 mr-14 mt-4 p-2 shadow-sm">
     <li><NavLink className={' '} to={'/addReview'}>AddReview</NavLink></li>
     <li><NavLink className={' '} to={'/myReviews'}>MyReviews</NavLink></li>
-    <li><a>Item 2</a></li>
+    <li><NavLink className={' '} to={'/favourites'}>My Favourites</NavLink></li>
+    
     <li><button onClick={handleLogOut} className='btn bg-orange-400 text-white hover:bg-orange-500 rounded-full'>SignOut</button></li>
   </ul>
      </div> : <>
